@@ -40,11 +40,17 @@ let usersSchema = mongoose.Schema({
     "password": String
 })
 
+let favouriteSongsSchema = mongoose.Schema({
+    "userId": String,
+    "songs": Array
+})
+
 module.exports = [
     { schema: tracksSchema, collectionName: "tracks"},
     { schema: artistsSchema, collectionName: "artists"},
     { schema: albumsSchema, collectionName: "albums"},
     { schema: languagesSchema, collectionName: "languages"},
     { schema: bannerSchema, collectionName: "banner"},
-    { schema: usersSchema, collectionName: "users"}
+    { schema: usersSchema, collectionName: "users"},
+    { schema: favouriteSongsSchema, collectionName: 'favouriteSongs'}
 ]

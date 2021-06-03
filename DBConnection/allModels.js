@@ -70,12 +70,23 @@ const usersModel = mongoose.model(
     "users"
 )
 
+let favouriteSongsSchema = mongoose.Schema({
+    "userId": String,
+    "songs": Array
+})
+const favouriteSongsModel = mongoose.model(
+    "favouriteSongsModel",
+    favouriteSongsSchema,
+    "favouriteSongs"
+)
+
 module.exports = {
     tracksModel,
     artistsModel,
     albumsModel,
     languagesModel,
     bannerModel,
-    usersModel
+    usersModel,
+    favouriteSongsModel
 }
 

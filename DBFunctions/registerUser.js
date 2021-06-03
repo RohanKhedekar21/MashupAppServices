@@ -41,7 +41,7 @@ const registerUser = async function(req, res, next) {
                 }
                 let docToSave = new usersModel(doc)
                 await docToSave.save()
-                res.json({"status": "success"})
+                res.json({"status": "success",userData: doc})
             }
         }
     })

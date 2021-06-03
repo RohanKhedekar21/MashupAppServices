@@ -10,7 +10,9 @@ const getArtists = require('../DBFunctions/getArtists');
 const getSongsList = require('../DBFunctions/getSongsList');
 const sentOtpEmail = require('../DBFunctions/sentOtpEmail');
 const doLogin = require('../DBFunctions/doLogin');
-const registerUser = require('../DBFunctions/registerUser')
+const registerUser = require('../DBFunctions/registerUser');
+const setFavourite = require('../DBFunctions/setFavourite');
+const getFavourite = require('../DBFunctions/getFavourite');
 
 
 let port = process.env.PORT || dbData.port;
@@ -61,6 +63,16 @@ router.all('/mashupservices/getArtists', function(req, res, next){
 router.all('/mashupservices/getSongsList', function(req, res, next){
     res.header("Access-Control-Allow-Origin", "*");
     getSongsList(req, res, next);
+})
+
+router.all('/mashupservices/setFavourite', function(req, res, next){
+    res.header("Access-Control-Allow-Origin", "*");
+    setFavourite(req, res, next);
+})
+
+router.all('/mashupservices/getFavourite', function(req, res, next){
+    res.header("Access-Control-Allow-Origin", "*");
+    getFavourite(req, res, next);
 })
 
 mashupservices.use("/",router);
